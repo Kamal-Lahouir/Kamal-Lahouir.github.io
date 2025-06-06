@@ -16,12 +16,20 @@
         <a href="../index.html">Home</a>
         <a href="../index.html#projects">Projects</a>
         <a href="../index.html#contact">Contact</a>
-        <button id="darkmode-toggle" title="Toggle dark mode">🌙</button>
+        <label class="toggle-switch" aria-label="Toggle dark mode">
+          <input type="checkbox" id="darkmode-toggle" aria-checked="false">
+          <span class="slider">
+            <!-- <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i> -->
+          </span>
+        </label>
       </nav>
     </header>
     <main>
       <section>
-        <a href="../index.html#projects" class="back-link">&larr; Back to Projects</a>
+        <a href="../index.html#projects" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
         <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;">
           <img src="../images/human-evaluation-diagram.png" alt="Evaluation Tool Diagram" class="project-img" style="max-width:320px;" onerror="this.style.display='none'">
           <div>

@@ -421,6 +421,61 @@ body.dark .contact-icons a:hover {
   background: #181a20;
   color: var(--accent);
 }
+#darkmode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  margin-left: 16px;
+  position: relative;
+  width: 2.4em;
+  height: 2.4em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.2s, box-shadow 0.3s;
+}
+
+#darkmode-toggle .icon-moon,
+#darkmode-toggle .icon-sun {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  font-size: 1.6rem;
+  transition: opacity 0.35s, transform 0.35s;
+  pointer-events: none;
+}
+
+#darkmode-toggle .icon-moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+#darkmode-toggle .icon-sun {
+  opacity: 0;
+  transform: scale(0.6) rotate(-40deg);
+}
+
+body.dark #darkmode-toggle .icon-moon {
+  opacity: 0;
+  transform: scale(0.6) rotate(40deg);
+}
+body.dark #darkmode-toggle .icon-sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+#darkmode-toggle:focus {
+  box-shadow: 0 0 0 2px var(--accent2);
+}
+
+#darkmode-toggle:hover {
+  color: var(--accent);
+  background: rgba(119,82,254,0.08);
+  transform: rotate(-18deg) scale(1.1);
+}
+
 #darkmode-toggle.toggle-anim {
   animation: rotateToggle 0.4s cubic-bezier(.4,0,.2,1);
 }
@@ -428,4 +483,110 @@ body.dark .contact-icons a:hover {
   0% { transform: rotate(0);}
   50% { transform: rotate(180deg) scale(1.2);}
   100% { transform: rotate(360deg);}
+}
+.toggle-switch {
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  position: relative;
+  vertical-align: middle;
+  margin-left: 16px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #e0e7ff;
+  border-radius: 34px;
+  transition: background 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  top: 3px;
+  background-color: #232946;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), background 0.3s;
+  z-index: 1;
+}
+.slider i {
+  position: absolute;
+  top: 7px;
+  font-size: 1.1rem;
+  transition: opacity 0.3s, color 0.3s;
+  z-index: 2;
+}
+.slider .fa-moon {
+  left: 9px;
+  color: #fff;
+  opacity: 1;
+}
+.slider .fa-sun {
+  right: 9px;
+  color: #FFD600;
+  opacity: 0;
+}
+
+/* Checked (dark mode) */
+.toggle-switch input:checked + .slider {
+  background: #232946;
+}
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(24px);
+  background: #FFD600;
+}
+.toggle-switch input:checked + .slider .fa-moon {
+  opacity: 0;
+}
+.toggle-switch input:checked + .slider .fa-sun {
+  opacity: 1;
+}
+
+/* Dark mode body */
+body.dark .toggle-switch .slider {
+  background: #232946;
+}
+body.dark .toggle-switch .slider:before {
+  background: #FFD600;
+}
+body.dark .toggle-switch .fa-moon {
+  color: #232946;
+}
+body.dark .toggle-switch .fa-sun {
+  color: #FFD600;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent2);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  margin-bottom: 18px;
+  margin-top: 6px;
+}
+.back-btn i {
+  font-size: 1.1em;
+}
+.back-btn:hover, .back-btn:focus {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  text-decoration: none;
 }
