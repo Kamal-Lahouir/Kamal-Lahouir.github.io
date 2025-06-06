@@ -293,7 +293,7 @@ footer {
 body.dark {
   --bg: #181a20;
   --card: #23263a;
-  --text: #f4f6fb;
+  --text: #FAFAFA;
   --accent: #69baff;
   --accent2: #7c5cff;
   --border: #2b2d3a;
@@ -313,7 +313,7 @@ body.dark .project-card p,
 body.dark section p,
 body.dark section ul,
 body.dark section li {
-  color: #f4f6fb;
+  color: #FAFAFA;
 }
 body.dark .project-card h4,
 body.dark section h3,
