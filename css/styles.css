@@ -7,6 +7,7 @@
   --shadow: 0 2px 16px rgba(119,82,254,0.06);
   --border: #e0e0e0;
   --tag: #e0e7ff;
+  --nav-underline: var(--accent);
 }
 
 body {
@@ -15,7 +16,7 @@ body {
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   font-size: 1.08rem;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.4s cubic-bezier(.4,0,.2,1), color 0.4s cubic-bezier(.4,0,.2,1);
 }
 
 .container {
@@ -35,6 +36,12 @@ header {
   gap: 32px;
   justify-content: center;
   flex-wrap: wrap;
+  animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) 0.1s both;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-10px);}
 }
 
 .profile-img {
@@ -45,6 +52,7 @@ header {
   border: 4px solid var(--accent2);
   box-shadow: 0 4px 20px rgba(0,0,0,0.07);
   background: #fff;
+  animation: float 3.5s ease-in-out infinite;
 }
 
 .hero h1 {
@@ -52,12 +60,23 @@ header {
   font-size: 2.3rem;
   color: var(--accent2);
   margin-bottom: 0;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: fadeInRight 0.8s 0.4s both;
 }
 
-.hero h2 {
-  font-size: 1.3rem;
-  color: var(--accent);
-  margin: 0 0 6px 0;
+.hero h2, .tagline {
+  opacity: 0;
+  animation: fadeInRight 0.8s 0.6s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: none;}
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-40px);}
+  to { opacity: 1; transform: none;}
 }
 
 .tagline {
@@ -76,10 +95,13 @@ header {
   font-size: 1.6rem;
   color: var(--accent);
   transition: color 0.2s, transform 0.2s;
+  transform: scale(1);
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.8s both;
 }
 .social-links a:hover {
   color: var(--accent2);
-  transform: scale(1.18);
+  transform: scale(1.18) rotate(-6deg);
 }
 .social-links i {
   vertical-align: middle;
@@ -87,6 +109,11 @@ header {
 
 nav {
   margin: 24px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
 }
 nav a {
   color: var(--accent2);
@@ -94,12 +121,28 @@ nav a {
   font-weight: 600;
   margin: 0 10px;
   padding: 6px 0;
-  border-bottom: 2px solid transparent;
-  transition: border 0.2s, color 0.2s;
+  position: relative;
+  transition: color 0.3s;
+  overflow: hidden;
+}
+nav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--nav-underline);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  transform-origin: right;
 }
 nav a:hover, nav a:focus {
-  border-bottom: 2px solid var(--accent);
   color: var(--accent);
+}
+nav a:hover::after, nav a:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 #darkmode-toggle {
   background: none;
@@ -109,9 +152,15 @@ nav a:hover, nav a:focus {
   cursor: pointer;
   color: var(--accent2);
   vertical-align: middle;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.3s cubic-bezier(.4,0,.2,1);
+  outline: none;
+  border-radius: 50%;
+  padding: 5px;
 }
-#darkmode-toggle:hover { color: var(--accent); }
+#darkmode-toggle:hover { 
+  color: var(--accent); 
+  transform: rotate(-18deg) scale(1.2);
+}
 
 main {
   margin-top: 36px;
@@ -124,13 +173,24 @@ section {
   margin-bottom: 28px;
   padding: 28px 32px;
   border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) both;
+  animation-delay: 0.2s;
   transition: background 0.3s, color 0.3s;
 }
+section:nth-of-type(2) { animation-delay: 0.3s;}
+section:nth-of-type(3) { animation-delay: 0.4s;}
+section:nth-of-type(4) { animation-delay: 0.5s;}
+section:nth-of-type(5) { animation-delay: 0.6s;}
 section h3 {
   color: var(--accent2);
   font-size: 1.25rem;
   margin-bottom: 12px;
   letter-spacing: 0.02em;
+  position: relative;
+  opacity: 0;
+  animation: fadeInRight 0.7s 0.3s both;
 }
 section h4 {
   color: var(--accent);
@@ -159,10 +219,21 @@ section p, section ul, section li {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  animation: cardFadeIn 0.8s cubic-bezier(.4,0,.2,1) 0.5s both;
+}
+.project-card:nth-child(2) {
+  animation-delay: 0.7s;
+}
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.98);}
+  to { opacity: 1; transform: none;}
 }
 .project-card:hover {
   box-shadow: 0 8px 32px rgba(119,82,254,0.14);
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-6px) scale(1.04) rotate(-1deg);
+  background: var(--tag);
 }
 .project-card img {
   width: 100%;
@@ -170,6 +241,10 @@ section p, section ul, section li {
   object-fit: cover;
   background: #e0e7ff;
   border-bottom: 1px solid var(--border);
+  transition: filter 0.3s;
+}
+.project-card:hover img {
+  filter: brightness(0.92) contrast(1.05);
 }
 .project-card div {
   padding: 18px 16px 12px 16px;
@@ -196,6 +271,8 @@ section p, section ul, section li {
 
 .exp-block {
   margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.7s both;
 }
 .exp-role {
   font-weight: 400;
@@ -221,6 +298,8 @@ section p, section ul, section li {
   padding: 12px 14px;
   margin-bottom: 10px;
   border-left: 4px solid var(--accent2);
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1) 0.8s both;
 }
 .skills-list h5 {
   color: var(--accent2);
@@ -248,11 +327,13 @@ section p, section ul, section li {
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   text-decoration: none;
   font-weight: 500;
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1) 0.9s both;
 }
 .contact-icons a:hover {
   color: var(--accent);
   background: #e0e7ff;
-  transform: scale(1.08);
+  transform: scale(1.08) rotate(-2deg);
 }
 .contact-icons i {
   margin-right: 10px;
@@ -272,6 +353,8 @@ footer {
   font-size: 0.97rem;
   margin-top: 30px;
   border-top: 1px solid var(--border);
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1) 1.2s both;
 }
 
 @media (max-width: 900px) {
@@ -298,6 +381,7 @@ body.dark {
   --accent2: #7c5cff;
   --border: #2b2d3a;
   --tag: #232c3a;
+  --nav-underline: var(--accent);
 }
 body.dark {
   background: var(--bg);
@@ -336,4 +420,12 @@ body.dark .contact-icons span {
 body.dark .contact-icons a:hover {
   background: #181a20;
   color: var(--accent);
+}
+#darkmode-toggle.toggle-anim {
+  animation: rotateToggle 0.4s cubic-bezier(.4,0,.2,1);
+}
+@keyframes rotateToggle {
+  0% { transform: rotate(0);}
+  50% { transform: rotate(180deg) scale(1.2);}
+  100% { transform: rotate(360deg);}
 }
