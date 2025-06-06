@@ -73,16 +73,16 @@ header {
   display: inline-block;
   margin: 0 8px;
   vertical-align: middle;
+  font-size: 1.6rem;
+  color: var(--accent);
+  transition: color 0.2s, transform 0.2s;
 }
-.social-links img {
-  width: 28px;
-  height: 28px;
-  filter: grayscale(0.3);
-  transition: filter 0.2s, transform 0.2s;
+.social-links a:hover {
+  color: var(--accent2);
+  transform: scale(1.18);
 }
-.social-links a:hover img {
-  filter: none;
-  transform: scale(1.12);
+.social-links i {
+  vertical-align: middle;
 }
 
 nav {
@@ -226,6 +226,26 @@ section p, section ul, section li {
   color: var(--accent2);
   font-size: 1.02rem;
   margin-bottom: 4px;
+}
+
+.contact-icons {
+  margin-bottom: 12px;
+}
+.contact-icons a {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 2rem;
+  color: var(--accent);
+  transition: color 0.2s, transform 0.15s;
+  vertical-align: middle;
+}
+.contact-icons a:last-child { margin-right: 0; }
+.contact-icons a:hover {
+  color: var(--accent2);
+  transform: scale(1.15);
+}
+.contact-icons i {
+  vertical-align: middle;
 }
 
 footer {
