@@ -5,73 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI-Powered Chatbot with RAG | Kamal Lahouir</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script defer src="../js/darkmode.js"></script>
 </head>
 <body>
-  <header>
-    <h1>AI-Powered Chatbot with RAG Capabilities</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../index.html#projects">Projects</a>
-      <a href="../index.html#contact">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <a href="../index.html#projects" class="back-link">&larr; Back to Projects</a>
-    <section>
-      <h2>Overview</h2>
-      <p>
-        This project delivers an intelligent chatbot solution with Retrieval-Augmented Generation (RAG) capabilities, designed for seamless integration with SCORM e-learning packages. It leverages advanced LLMs for contextual conversation, accurate information retrieval, and robust user interaction.
-      </p>
-      <img src="../images/ai-chatbot-diagram.png" alt="Chatbot Architecture" class="project-img" onerror="this.style.display='none'">
-    </section>
-    <section>
-      <h2>Key Features</h2>
-      <ul>
-        <li>SCORM package integration for e-learning platforms</li>
-        <li>LangChain-powered RAG for precise, context-aware responses</li>
-        <li>Vector database (Pinecone) for efficient document retrieval</li>
-        <li>FastAPI backend with advanced prompt engineering</li>
-        <li>Audio input processing and text-to-speech output</li>
-        <li>Secure, scalable, and enterprise-ready architecture</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Technologies Used</h2>
-      <ul>
-        <li>LangChain</li>
-        <li>Pinecone</li>
-        <li>Azure OpenAI</li>
-        <li>Python</li>
-        <li>PostgreSQL</li>
-        <li>FastAPI</li>
-      </ul>
-    </section>
-    <section>
-      <h2>My Role</h2>
-      <ul>
-        <li>Architected the entire AI system and managed end-to-end development</li>
-        <li>Designed and implemented RAG pipelines and prompt engineering strategies</li>
-        <li>Integrated audio features and ensured content boundaries</li>
-        <li>Collaborated with stakeholders to align with business requirements</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Results & Impact</h2>
-      <ul>
-        <li>Enabled scalable, interactive learning experiences for enterprise clients</li>
-        <li>Improved user engagement and learning outcomes</li>
-        <li>Reduced manual support needs through intelligent automation</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Screenshots & Diagrams</h2>
-      <p>
-        <em>Add architecture diagrams or screenshots here (e.g., <code>images/ai-chatbot-diagram.png</code>).</em>
-      </p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Kamal Lahouir</p>
-  </footer>
+  <div class="container">
+    <header>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+        <button id="darkmode-toggle" title="Toggle dark mode">🌙</button>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <a href="../index.html#projects" class="back-link">&larr; Back to Projects</a>
+        <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;">
+          <img src="../images/ai-chatbot-diagram.png" alt="AI Chatbot Diagram" class="project-img" style="max-width:320px;" onerror="this.style.display='none'">
+          <div>
+            <h1 style="color:var(--accent2);margin-bottom:8px;">AI-Powered Chatbot with RAG</h1>
+            <span class="tech-tags">LangChain · Pinecone · Azure OpenAI · FastAPI · Python · PostgreSQL</span>
+            <p style="margin-top:12px;">
+              An intelligent chatbot solution for e-learning with Retrieval-Augmented Generation (RAG), SCORM integration, and audio features. Delivers accurate, context-aware responses and enhances user engagement through voice and text.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Key Features</h3>
+        <ul>
+          <li>SCORM package integration for seamless e-learning deployment</li>
+          <li>Retrieval-Augmented Generation (RAG) for precise, context-aware answers</li>
+          <li>Vector database (Pinecone) for fast, relevant document retrieval</li>
+          <li>FastAPI backend with advanced prompt engineering</li>
+          <li>Audio input processing and text-to-speech output</li>
+          <li>Enterprise-grade security and scalability</li>
+        </ul>
+      </section>
+      <section>
+        <h3>My Role</h3>
+        <ul>
+          <li>Architected and developed the AI system end-to-end</li>
+          <li>Designed RAG pipelines and prompt engineering strategies</li>
+          <li>Integrated audio features and ensured content boundaries</li>
+          <li>Collaborated with stakeholders for business alignment</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Results & Impact</h3>
+        <ul>
+          <li>Enabled scalable, interactive learning experiences for enterprise clients</li>
+          <li>Improved user engagement and learning outcomes</li>
+          <li>Reduced manual support needs through intelligent automation</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Screenshots & Diagrams</h3>
+        <p>
+          <em>Add architecture diagrams or screenshots here (e.g., <code>images/ai-chatbot-diagram.png</code>).</em>
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Kamal Lahouir</p>
+    </footer>
+  </div>
 </body>
 </html>
