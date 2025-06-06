@@ -155,7 +155,7 @@ section p, section ul, section li {
   min-width: 220px;
   text-decoration: none;
   color: var(--text);
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.3s, color 0.3s;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -288,36 +288,52 @@ footer {
   .hero h1 { font-size: 1.3rem; }
   .contact-icons a { font-size: 1.3rem; padding: 8px 12px; }
 }
+
+/* --- DARK MODE --- */
 body.dark {
-  --bg: #191c26;
-  --card: #222436;
-  --text: #eaeaff;
-  --accent: #a385ff;
-  --accent2: #4ad6ff;
-  --border: #25264a;
-  --tag: #2d2e4f;
+  --bg: #181a20;
+  --card: #23263a;
+  --text: #f4f6fb;
+  --accent: #69baff;
+  --accent2: #7c5cff;
+  --border: #2b2d3a;
+  --tag: #232c3a;
 }
-/* Improved dark mode for project cards and text */
+body.dark {
+  background: var(--bg);
+  color: var(--text);
+}
+body.dark section,
+body.dark .project-card {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--border);
+}
 body.dark .project-card p,
-body.dark section, 
-body.dark section p, 
-body.dark section ul, 
+body.dark section p,
+body.dark section ul,
 body.dark section li {
-  color: #e5e6eb;
+  color: #f4f6fb;
 }
-body.dark .project-card h4 {
-  color: #4ad6ff;
+body.dark .project-card h4,
+body.dark section h3,
+body.dark section h4 {
+  color: var(--accent);
 }
 body.dark .tech-tags {
-  background: #2d2e4f;
-  color: #4ad6ff;
+  background: var(--tag);
+  color: var(--accent2);
+}
+body.dark .skills-list > div {
+  background: #232c3a;
+  border-left: 4px solid var(--accent2);
 }
 body.dark .contact-icons a,
 body.dark .contact-icons span {
-  background: #232946;
-  color: #4ad6ff;
+  background: #232c3a;
+  color: var(--accent2);
 }
 body.dark .contact-icons a:hover {
-  background: #2d2e4f;
-  color: #a385ff;
+  background: #181a20;
+  color: var(--accent);
 }
